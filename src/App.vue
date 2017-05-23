@@ -1,23 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <header-wrapper></header-wrapper>
+    <div class="main-content">
+        <side-nav></side-nav>
+        <div class="content">
+          <el-card class="main-view">
+            <router-view></router-view>
+          </el-card>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderWrapper from '@/components/HeaderWrapper'
+import SideNav from '@/components/SideNav'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    HeaderWrapper, SideNav
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.content {
+  margin:75px 20px 20px 320px;
+}
+.main-view {
+  margin-top: 15px;
+  min-height:500px;
 }
 </style>
