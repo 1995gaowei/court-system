@@ -55,7 +55,8 @@
     methods: {
         selectItem (name) {
             console.log(sideNavs[name]);
-            this.$store.dispatch('addTab', sideNavs[name]);
+            this.$store.commit('addTab', sideNavs[name]);
+            this.$router.push(name);
         }
     }
   }

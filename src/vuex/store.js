@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     isLogin: false,
     currentUser: '',
+    court: '1',
 
     tabs: [],
     activeTab: '主页'
@@ -19,8 +20,16 @@ export default new Vuex.Store({
       state.activeTab = tab;
     },
     removeTab (state, tab) {
-        let index = state.tabs.indexOf(tab);
-        state.tabs.splice(index, 1);
+      let index = state.tabs.indexOf(tab);
+      state.tabs.splice(index, 1);
+      if (state.tabs.length == 0) {
+        state.activeTab = '主页'
+      } else {
+        state.activeTab = state.tabs[state.tabs.length-1]
+      }
+    },
+    changeCourt (state, court) {
+      state.court = court;
     },
 
     login (state, info) {
@@ -33,13 +42,6 @@ export default new Vuex.Store({
     }
   },
   actions: {
-      addTab ({ commit }, tab) {
-          commit('addTab', tab)
-      }, 
-      removeTab ({ commit }, tab) {
-          commit('removeTab', tab)
-      },
-
       login ({ commit }, info) {
         commit('login', info)
       },

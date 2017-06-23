@@ -111,7 +111,6 @@ export default {
           }
         },
         series: [{
-          roam: true,
           zoom: 1.2,
           name: '销量',
           type: 'map',

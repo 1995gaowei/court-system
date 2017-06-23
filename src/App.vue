@@ -56,4 +56,8 @@ export default {
   height: 30px;
   text-align: center;
 }
+
+#SPTSCourtTable th {
+  text-align: center;
+}
 </style>
